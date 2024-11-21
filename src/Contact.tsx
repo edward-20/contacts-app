@@ -1,4 +1,10 @@
 import User from "./User";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 interface UserProps {
   user: User
@@ -11,7 +17,16 @@ export default function Contact({user}: UserProps) {
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
-      <p>Website: <a href={user.website}>{user.website}</a></p>
+      <p>Website: <a target="_blank" href={`https://${user.website}`}>{user.website}</a></p>
+
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>More</AccordionTrigger>
+          <AccordionContent>
+            Yes. It adheres to the WAI-ARIA design pattern.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   )
 }
