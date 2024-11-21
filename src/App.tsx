@@ -13,7 +13,7 @@ function App() {
     let active = true;
 
     (async () => {
-      const response = await fetch('/users.json')
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
       const data: User[] = await response.json()
       if (active) {
         setData(data)
