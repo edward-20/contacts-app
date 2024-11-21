@@ -18,12 +18,19 @@ export default function Contact({user}: UserProps) {
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
       <p>Website: <a target="_blank" href={`https://${user.website}`}>{user.website}</a></p>
-
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
-          <AccordionTrigger>More</AccordionTrigger>
+          <AccordionTrigger className="text-sm color:">More</AccordionTrigger>
           <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
+          <p className="text-lg font-bold">Address:</p>
+          <p>{user.address.street}</p>
+          <p>{user.address.suite}</p>
+          <p>{user.address.city} {user.address.zipcode}</p>
+
+          <p className="text-lg font-bold">Company:</p>
+          <p className="text-md">{user.company.name}</p>
+          <p>{user.company.catchPhrase}</p>
+          <p className="italic">{`"${user.company.bs}"`}</p>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
